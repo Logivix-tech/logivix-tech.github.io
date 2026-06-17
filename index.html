@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logivix-tech | Premium Web Development & Tech Solutions Islamabad</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- Design System & Reset --- */
+        :root {
+            --bg-dark: #070b13;
+            --bg-card: #0f172a;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --primary: #3b82f6;
+            --primary-glow: rgba(59, 130, 246, 0.6);
+            --accent: #10b981;
+            --accent-glow: rgba(16, 185, 129, 0.4);
+            --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* --- Scrollbar Performance Animation --- */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+
+        /* --- Scroll-Driven Entry Animations (Triggered via JS class) --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s var(--transition-smooth), transform 0.8s var(--transition-smooth);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s var(--transition-smooth), transform 0.8s var(--transition-smooth);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s var(--transition-smooth), transform 0.8s var(--transition-smooth);
+        }
+
+        .reveal-left.active, .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Delay Utilities for Staggered Animations */
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+
+        /* --- Navbar (Slide Down & Dynamic Blur) --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(7, 11, 19, 0.8);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            animation: slideDown 0.6s var(--transition-smooth) forwards;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .logo span {
+            color: var(--primary);
+            text-shadow: 0 0 15px var(--primary-glow);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+
+        /* Hover Line Underline Animation */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        .btn-nav {
+            background-color: var(--primary);
+            color: var(--text-main) !important;
+            padding: 0.6rem 1.4rem;
+            border-radius: 5px;
+            box-shadow: 0 4px 15px var(--primary-glow);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+        }
+
+        .btn-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--primary-glow);
+            filter: brightness(1.1);
+        }
+
+        .btn-nav::after {
+            display: none !important;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            padding: 200px 0 120px 0;
+            background: radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.15), transparent 60%),
+                        radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.05), transparent 50%);
+            min-height: 95vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        /* Floating Badge Animation */
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: rgba(59, 130, 246, 0.1);
+            color: var(--primary);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            animation: pulseGlow 2.5s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.1); border-color: rgba(59, 130, 246, 0.2); }
+            100% { box-shadow: 0 0 15px rgba(59, 130, 246, 0.3); border-color: rgba(59, 130, 246, 0.5); }
+        }
+
+        .hero-badge i {
+            font-size: 0.75rem;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* Text Shimmer Effect */
+        .hero h1 {
+            font-size: 3.8rem;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(to right, #3b82f6, #10b981, #3b82f6);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shineText 4s linear infinite;
+        }
+
+        @keyframes shineText {
+            to { background-position: 200% center; }
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            margin-bottom: 2.5rem;
+            max-width: 620px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        /* Animated Interactive Button */
+        .btn-primary {
+            position: relative;
+            background-color: var(--primary);
+            color: var(--text-main);
+            padding: 1rem 2.2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px var(--primary-glow);
+            transition: all 0.3s var(--transition-smooth);
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: none;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+            transition: 0.6s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px var(--primary-glow);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-main);
+            padding: 1rem 2.2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-main);
+            background-color: rgba(255, 255, 255, 0.05);
+            transform: translateY(-4px);
+        }
+
+        /* Interactive Dynamic Visual Mesh */
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .tech-mesh {
+            width: 100%;
+            max-width: 440px;
+            animation: floatingMesh 8s ease-in-out infinite;
+        }
+
+        @keyframes floatingMesh {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(3deg); }
+        }
+
+        .pulse-circle {
+            animation: radarPulse 4s cubic-bezier(0.215, 0.610, 0.355, 1) infinite;
+            transform-origin: center;
+        }
+
+        @keyframes radarPulse {
+            0% { r: 5px; opacity: 0.8; }
+            50% { opacity: 0.4; }
+            100% { r: 50px; opacity: 0; }
+        }
+
+        /* --- Sections Matrix --- */
+        section {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.6rem;
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            max-width: 580px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+
+        /* --- About Section --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .about-content p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .stat-box {
+            border-left: 3px solid var(--primary);
+            padding: 0.5rem 0 0.5rem 1.5rem;
+            margin-bottom: 2.5rem;
+            transition: border-color 0.4s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .stat-box:hover {
+            border-color: var(--accent);
+            transform: translateX(8px);
+        }
+
+        .stat-box h4 {
+            font-size: 2.8rem;
+            color: var(--text-main);
+            line-height: 1;
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-box p {
+            margin: 0;
+            color: var(--text-muted);
+        }
+
+        /* --- Services Section --- */
+        .services {
+            background-color: #0b111e;
+            box-shadow: inset 0 20px 80px rgba(0,0,0,0.4), inset 0 -20px 80px rgba(0,0,0,0.4);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        /* Advanced Card Hover Animations */
+        .service-card {
+            background-color: var(--bg-card);
+            padding: 3rem 2.5rem;
+            border-radius: 12px;
+            transition: transform 0.4s var(--transition-smooth), border-color 0.4s ease, box-shadow 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        /* Back-gradient glow slide interaction */
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
+            transition: all 0.6s var(--transition-smooth);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .service-card:hover::before {
+            top: -50%;
+            left: -50%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(59, 130, 246, 0.25);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 30px rgba(59, 130, 246, 0.05);
+        }
+
+        /* Flagship Service (Web Dev Upgrade Style) */
+        .service-card.featured {
+            border-color: rgba(16, 185, 129, 0.2);
+            background: linear-gradient(150deg, var(--bg-card) 60%, rgba(16, 185, 129, 0.03));
+        }
+
+        .service-card.featured::before {
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 60%);
+        }
+
+        .service-card.featured:hover {
+            border-color: rgba(16, 185, 129, 0.4);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 35px rgba(16, 185, 129, 0.1);
+        }
+
+        /* Icon micro-animations on parent hover */
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.8rem;
+            display: inline-block;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        .service-card.featured .service-icon {
+            color: var(--accent);
+            text-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .service-card h3 {
+            font-size: 1.45rem;
+            margin-bottom: 1rem;
+            letter-spacing: -0.3px;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+
+        /* --- Contact Section --- */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 5rem;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .contact-details {
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            group: hover;
+        }
+
+        .contact-item i {
+            font-size: 1.2rem;
+            color: var(--primary);
+            background-color: rgba(59, 130, 246, 0.08);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            padding: 1rem;
+            border-radius: 50%;
+            width: 54px;
+            height: 54px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover i {
+            background-color: var(--primary);
+            color: var(--text-main);
+            transform: scale(1.1);
+            box-shadow: 0 0 20px var(--primary-glow);
+        }
+
+        .contact-form {
+            background-color: var(--bg-card);
+            padding: 3.5rem 3rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        /* Interactive Floating-Effect Input Lines */
+        .form-group {
+            margin-bottom: 1.8rem;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.6rem;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            transition: color 0.3s ease;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.9rem 1.1rem;
+            background-color: rgba(7, 11, 19, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 6px;
+            color: var(--text-main);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--primary);
+            background-color: rgba(7, 11, 19, 0.8);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.15);
+        }
+
+        .form-group input:focus + label {
+            color: var(--primary);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: var(--primary);
+            color: var(--text-main);
+            border: none;
+            padding: 1.1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px var(--primary-glow);
+            transition: all 0.3s var(--transition-smooth);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 22px var(--primary-glow);
+            filter: brightness(1.1);
+        }
+
+        /* --- Footer Matrix --- */
+        /* --- Premium Footer Design System --- */
+    .corporate-footer {
+        background-color: #03060a;
+        border-top: 1px solid rgba(59, 130, 246, 0.1);
+        padding: 90px 0 30px 0;
+        color: #94a3b8; /* var(--text-muted) */
+        font-size: 0.95rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Subtle background glow matrix inside footer */
+    .corporate-footer::after {
+        content: '';
+        position: absolute;
+        bottom: -150px;
+        right: -150px;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(16, 185, 129, 0.04) 0%, transparent 70%);
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 0.8fr 0.8fr 1.2fr;
+        gap: 4rem;
+        margin-bottom: 60px;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Column 1: Brand & Identity */
+    .footer-brand .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: #f8fafc; /* var(--text-main) */
+        margin-bottom: 1.5rem;
+    }
+
+    .footer-brand .logo span {
+        color: #3b82f6; /* var(--primary) */
+        text-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
+    }
+
+    .footer-brand p {
+        line-height: 1.7;
+        margin-bottom: 2rem;
+        color: #94a3b8;
+    }
+
+    /* Engineering Social Node Links */
+    .footer-socials {
+        display: flex;
+        gap: 1.2rem;
+    }
+
+    .footer-socials a {
+        width: 44px;
+        height: 44px;
+        background-color: #0f172a;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #94a3b8;
+        text-decoration: none;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .footer-socials a:hover {
+        background-color: #3b82f6;
+        color: #f8fafc;
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+        border-color: #3b82f6;
+    }
+
+    /* Column 2 & 3: Structural Menus */
+    .footer-column h4 {
+        color: #f8fafc;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+        letter-spacing: 0.5px;
+        position: relative;
+    }
+
+    /* Interactive Section Accent Line */
+    .footer-column h4::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 35px;
+        height: 2px;
+        background: linear-gradient(to right, #3b82f6, #10b981);
+    }
+
+    .footer-links {
+        list-style: none;
+    }
+
+    .footer-links li {
+        margin-bottom: 1rem;
+    }
+
+    .footer-links a {
+        color: #94a3b8;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-block;
+    }
+
+    .footer-links a:hover {
+        color: #3b82f6;
+        transform: translateX(6px);
+    }
+
+    /* Column 4: Newsletter System Input */
+    .newsletter-box p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+
+    .newsletter-form {
+        display: flex;
+        background-color: #0f172a;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        padding: 0.4rem;
+        transition: border-color 0.3s ease;
+    }
+
+    .newsletter-form:focus-within {
+        border-color: #3b82f6;
+        box-shadow: 0 0 15px rgba(59, 130, 246, 0.15);
+    }
+
+    .newsletter-form input {
+        background: transparent;
+        border: none;
+        padding: 0.8rem 1rem;
+        color: #f8fafc;
+        font-size: 0.9rem;
+        outline: none;
+        width: 100%;
+    }
+
+    .newsletter-form input::placeholder {
+        color: #475569;
+    }
+
+    .newsletter-btn {
+        background-color: #3b82f6;
+        border: none;
+        color: #f8fafc;
+        padding: 0 1.4rem;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .newsletter-btn:hover {
+        background-color: #2563eb;
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    }
+
+    /* Footer Bottom Terminal Strip */
+    .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding-top: 35px;
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.88rem;
+        position: relative;
+        z-index: 1;
+    }
+
+    .location-tag {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #f8fafc;
+        font-weight: 500;
+        background-color: rgba(59, 130, 246, 0.05);
+        border: 1px solid rgba(59, 130, 246, 0.1);
+        padding: 0.4rem 1rem;
+        border-radius: 50px;
+    }
+
+    .location-tag i {
+        color: #10b981; /* var(--accent) */
+        animation: pinPulse 2s infinite alternate;
+    }
+
+    @keyframes pinPulse {
+        0% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(16, 185, 129, 0.5)); }
+        100% { transform: scale(1.15); filter: drop-shadow(0 0 8px #10b981); }
+    }
+
+    /* Responsive Adaptation Map */
+    @media (max-width: 968px) {
+        .footer-grid {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+        .footer-bottom {
+            flex-direction: column;
+            gap: 1.5rem;
+            text-align: center;
+        }
+    }
+
+        /* --- Structural Responsive Rules --- */
+        @media (max-width: 968px) {
+            .hero-grid, .about-grid, .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+            .hero {
+                text-align: center;
+                padding-top: 160px;
+                padding-bottom: 80px;
+            }
+            .hero-badge {
+                margin: 0 auto 2rem auto;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .nav-links {
+                display: none; /* Modern structural compromise for dynamic code purity */
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Matrix -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">Logivix<span>-tech</span></div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact" class="btn-nav">Get Proposal</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Interactive Hero Space -->
+    <section id="home" class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content reveal-left active">
+                <div class="hero-badge">
+                    <i class="fas fa-circle"></i> Engineering Hub Islamabad
+                </div>
+                <h1>Deploy High-End <br><span>Web Ecosystems</span></h1>
+                <p>Logivix-tech transforms complex software challenges into hyper-scalable assets. While handling versatile operational enterprise systems, we concentrate our elite architectural mastery directly on premium, cutting-edge web development.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn-primary">Initiate Project</a>
+                    <a href="#services" class="btn-secondary">View Capabilities</a>
+                </div>
+            </div>
+            <div class="hero-image reveal-right active">
+                <!-- Advanced Dynamic Animated Tech Concept Object Layer -->
+                <svg class="tech-mesh" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.3" />
+                            <stop offset="100%" style="stop-color:#10b981;stop-opacity:0.05" />
+                        </linearGradient>
+                    </defs>
+                    <!-- Radar Rings Elements -->
+                    <circle class="pulse-circle" cx="100" cy="100" r="10" fill="none" stroke="#3b82f6" stroke-width="1.5"/>
+                    <circle class="pulse-circle" cx="100" cy="100" r="30" fill="none" stroke="#10b981" stroke-width="1" style="animation-delay: 1.5s;"/>
+                    <!-- Core Abstract Geometry Mesh -->
+                    <path fill="url(#grad1)" d="M40,-65C53.3,-58.2,66.7,-49.1,74.3,-36.2C82,-23.3,84,-6.7,81.4,9.2C78.8,25.2,71.7,40.6,61.1,52.3C50.5,64.1,36.5,72.2,21.3,76C6.1,79.8,-10.3,79.3,-25.1,74.3C-39.8,69.2,-52.9,59.7,-63.2,47.3C-73.5,34.9,-81.1,19.6,-83.1,3.4C-85.1,-12.8,-81.5,-29.9,-72.1,-43.3C-62.7,-56.7,-47.5,-66.4,-32.5,-72.1C-17.5,-77.7,-2.6,-79.3,11.3,-77C25.2,-74.7,40,-65,40,-65Z" transform="translate(100 100)" />
+                    <!-- Intersecting Nodes -->
+                    <circle cx="100" cy="30" r="4" fill="#3b82f6"/>
+                    <circle cx="140" cy="140" r="5" fill="#10b981"/>
+                    <circle cx="50" cy="120" r="4.5" fill="#3b82f6"/>
+                    <line x1="100" y1="30" x2="140" y2="140" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                    <line x1="50" y1="120" x2="140" y2="140" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Structural About Matrix -->
+    <section id="about">
+        <div class="container about-grid">
+            <div class="about-content reveal-left">
+                <h3><i class="fas fa-terminal"></i> Operational Core</h3>
+                <p>Operating locally from Islamabad, Logivix-tech configures high-impact engineering with smooth functional interfaces.</p>
+                <p>We work as technical partners, deploying dedicated server systems and web interfaces calibrated for peak efficiency. Our operations focus on replacing legacy friction with modern, reliable computing systems.</p>
+            </div>
+            <div class="about-stats reveal-right">
+                <div class="stat-box">
+                    <h4>99.9%</h4>
+                    <p>Architecture Uptime Benchmarks</p>
+                </div>
+                <div class="stat-box">
+                    <h4>Top Tier</h4>
+                    <p>Web Architecture & System Specialists</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Dynamic Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Technical Execution</h2>
+                <p>Engineered systems that keep your internal platforms agile and outward-facing web infrastructure pristine.</p>
+            </div>
+            <div class="services-grid">
+                <!-- Flagship High Performance Service Card -->
+                <div class="service-card featured reveal delay-1">
+                    <div class="service-icon"><i class="fas fa-code"></i></div>
+                    <h3>Web Development</h3>
+                    <p>Our premier architectural focus. Custom-crafted single-page apps (SPAs), secure API configurations, and custom web dashboards engineered explicitly for execution velocity, modern encryption, and clean logic frameworks.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="service-card reveal delay-2">
+                    <div class="service-icon"><i class="fas fa-bezier-curve"></i></div>
+                    <h3>UI/UX Software Systems</h3>
+                    <p>Refining human-computer interactions. Constructing visual interface blueprints based on behavioral heatmaps, screen scalability matrices, and fast layout rendering constraints.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="service-card reveal delay-3">
+                    <div class="service-icon"><i class="fas fa-server"></i></div>
+                    <h3>Infrastructure Optimization</h3>
+                    <p>Comprehensive system care. Managing enterprise networks, local cloud integrations, data backups, and diagnostic testing parameters to keep business processes running without interruptions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form & Coordinates Section -->
+    <section id="contact">
+        <div class="container contact-grid">
+            <div class="contact-info reveal-left">
+                <h3>Initialize Consultations</h3>
+                <p>Plan your next product lifecycle with precision. Drop your technical scope parameters below, and our engineering team will follow up with an assessment timeline.</p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4 style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase;">Secure Inbox</h4>
+                            <p style="font-weight: 500;">contact@logivix-tech.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <div>
+                            <h4 style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase;">Regional Hub</h4>
+                            <p style="font-weight: 500;">Islamabad, Pakistan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="reveal-right">
+                <form class="contact-form" onsubmit="event.preventDefault(); alert('Transmission Successful (Simulation Context Only)');">
+                    <div class="form-group">
+                        <input type="text" id="name" required placeholder=" ">
+                        <label for="name">Identifier / Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" required placeholder=" ">
+                        <label for="email">Corporate Communications Email</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="4" required placeholder=" "></textarea>
+                        <label for="message">System Specifications / Project Scope Details</label>
+                    </div>
+                    <button type="submit" class="btn-submit">Transmit System Request</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Terminal -->
+    <footer class="corporate-footer">
+        <div class="container">
+            <div class="footer-grid">
+                
+                <!-- Column 1: Brand Capsule -->
+                <div class="footer-brand">
+                    <div class="logo">Logivix<span>-tech</span></div>
+                    <p>Architecting enterprise-grade web experiences and integrated system infrastructure. We convert complex technical layouts into flawless user execution environments.</p>
+                    <div class="footer-socials">
+                        <a href="#" aria-label="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="GitHub Repository"><i class="fab fa-github"></i></a>
+                        <a href="#" aria-label="Twitter Feed"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" aria-label="Instagram Platform"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+    
+                <!-- Column 2: Flagship Capabilities Mapping -->
+                <div class="footer-column">
+                    <h4>Capabilities</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">Web Architecture</a></li>
+                        <li><a href="#services">UI/UX Layout Mapping</a></li>
+                        <li><a href="#services">Cloud Infrastructure</a></li>
+                        <li><a href="#services">API Integrations</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Column 3: Structural Navigation Map -->
+                <div class="footer-column">
+                    <h4>Enterprise</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Our Core</a></li>
+                        <li><a href="#showcase">Product Showcase</a></li>
+                        <li><a href="#services">System Expertise</a></li>
+                        <li><a href="#contact">Consultation Hub</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Column 4: Newsletter Engine -->
+                <div class="footer-column newsletter-box">
+                    <h4>Tech Briefings</h4>
+                    <p>Subscribe to secure premium deployment logs, architectural analysis, and framework updates straight from our core laboratory.</p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Telemetry Secure. Welcomed aboard Logivix Insights!');">
+                        <input type="email" required placeholder="name@enterprise.com" aria-label="Corporate Email">
+                        <button class="newsletter-btn" type="submit" aria-label="Subscribe Token"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+    
+            </div>
+    
+            <!-- Terminal Strip Bottom -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 Logivix-tech. All operational systems optimized and secured.</p>
+                <div class="location-tag">
+                    <i class="fas fa-map-marker-alt"></i> Islamabad, Pakistan
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Light Trigger Script to fire animations when elements appear on screen -->
+    <script>
+        const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
