@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logivix-tech | Premium Web Development & Tech Solutions Islamabad</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* --- Design System & Reset --- */
         :root {
@@ -23,7 +24,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
         }
 
         html {
@@ -58,7 +59,7 @@
             background: var(--primary);
         }
 
-        /* --- Scroll-Driven Entry Animations (Triggered via JS class) --- */
+        /* --- Scroll-Driven Entry Animations --- */
         .reveal {
             opacity: 0;
             transform: translateY(40px);
@@ -87,12 +88,11 @@
             transform: translateX(0);
         }
 
-        /* Delay Utilities for Staggered Animations */
         .delay-1 { transition-delay: 0.1s; }
         .delay-2 { transition-delay: 0.2s; }
         .delay-3 { transition-delay: 0.3s; }
 
-        /* --- Navbar (Slide Down & Dynamic Blur) --- */
+        /* --- Navbar --- */
         header {
             position: fixed;
             top: 0;
@@ -121,7 +121,8 @@
             font-size: 1.6rem;
             font-weight: 700;
             letter-spacing: 1px;
-            position: relative;
+            color: var(--text-main);
+            text-decoration: none;
         }
 
         .logo span {
@@ -145,7 +146,6 @@
             transition: color 0.3s ease;
         }
 
-        /* Hover Line Underline Animation */
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -184,6 +184,15 @@
             display: none !important;
         }
 
+        /* Menu Toggle Button */
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--text-main);
+            cursor: pointer;
+            z-index: 1001;
+        }
+
         /* --- Hero Section --- */
         .hero {
             padding: 200px 0 120px 0;
@@ -201,7 +210,6 @@
             align-items: center;
         }
 
-        /* Floating Badge Animation */
         .hero-badge {
             display: inline-flex;
             align-items: center;
@@ -232,7 +240,6 @@
             50% { opacity: 1; }
         }
 
-        /* Text Shimmer Effect */
         .hero h1 {
             font-size: 3.8rem;
             line-height: 1.15;
@@ -264,7 +271,6 @@
             gap: 1.5rem;
         }
 
-        /* Animated Interactive Button */
         .btn-primary {
             position: relative;
             background-color: var(--primary);
@@ -316,7 +322,6 @@
             transform: translateY(-4px);
         }
 
-        /* Interactive Dynamic Visual Mesh */
         .hero-image {
             position: relative;
             display: flex;
@@ -429,7 +434,6 @@
             gap: 2.5rem;
         }
 
-        /* Advanced Card Hover Animations */
         .service-card {
             background-color: var(--bg-card);
             padding: 3rem 2.5rem;
@@ -441,7 +445,6 @@
             z-index: 1;
         }
 
-        /* Back-gradient glow slide interaction */
         .service-card::before {
             content: '';
             position: absolute;
@@ -466,7 +469,6 @@
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 30px rgba(59, 130, 246, 0.05);
         }
 
-        /* Flagship Service (Web Dev Upgrade Style) */
         .service-card.featured {
             border-color: rgba(16, 185, 129, 0.2);
             background: linear-gradient(150deg, var(--bg-card) 60%, rgba(16, 185, 129, 0.03));
@@ -481,7 +483,6 @@
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 35px rgba(16, 185, 129, 0.1);
         }
 
-        /* Icon micro-animations on parent hover */
         .service-icon {
             font-size: 2.5rem;
             color: var(--primary);
@@ -533,7 +534,6 @@
             align-items: center;
             gap: 1.5rem;
             margin-bottom: 2rem;
-            group: hover;
         }
 
         .contact-item i {
@@ -566,7 +566,6 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
 
-        /* Interactive Floating-Effect Input Lines */
         .form-group {
             margin-bottom: 1.8rem;
             position: relative;
@@ -597,10 +596,6 @@
             box-shadow: 0 0 15px rgba(59, 130, 246, 0.15);
         }
 
-        .form-group input:focus + label {
-            color: var(--primary);
-        }
-
         .btn-submit {
             width: 100%;
             background-color: var(--primary);
@@ -621,230 +616,192 @@
             filter: brightness(1.1);
         }
 
-        /* --- Footer Matrix --- */
-        /* --- Premium Footer Design System --- */
-    .corporate-footer {
-        background-color: #03060a;
-        border-top: 1px solid rgba(59, 130, 246, 0.1);
-        padding: 90px 0 30px 0;
-        color: #94a3b8; /* var(--text-muted) */
-        font-size: 0.95rem;
-        position: relative;
-        overflow: hidden;
-    }
+        /* --- Premium Footer --- */
+        .corporate-footer {
+            background-color: #03060a;
+            border-top: 1px solid rgba(59, 130, 246, 0.1);
+            padding: 90px 0 30px 0;
+            color: #94a3b8;
+            font-size: 0.95rem;
+            position: relative;
+            overflow: hidden;
+        }
 
-    /* Subtle background glow matrix inside footer */
-    .corporate-footer::after {
-        content: '';
-        position: absolute;
-        bottom: -150px;
-        right: -150px;
-        width: 400px;
-        height: 400px;
-        background: radial-gradient(circle, rgba(16, 185, 129, 0.04) 0%, transparent 70%);
-        z-index: 0;
-        pointer-events: none;
-    }
+        .corporate-footer::after {
+            content: '';
+            position: absolute;
+            bottom: -150px;
+            right: -150px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.04) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
 
-    .footer-grid {
-        display: grid;
-        grid-template-columns: 1.4fr 0.8fr 0.8fr 1.2fr;
-        gap: 4rem;
-        margin-bottom: 60px;
-        position: relative;
-        z-index: 1;
-    }
-
-    /* Column 1: Brand & Identity */
-    .footer-brand .logo {
-        font-size: 1.8rem;
-        font-weight: 700;
-        letter-spacing: 1px;
-        color: #f8fafc; /* var(--text-main) */
-        margin-bottom: 1.5rem;
-    }
-
-    .footer-brand .logo span {
-        color: #3b82f6; /* var(--primary) */
-        text-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
-    }
-
-    .footer-brand p {
-        line-height: 1.7;
-        margin-bottom: 2rem;
-        color: #94a3b8;
-    }
-
-    /* Engineering Social Node Links */
-    .footer-socials {
-        display: flex;
-        gap: 1.2rem;
-    }
-
-    .footer-socials a {
-        width: 44px;
-        height: 44px;
-        background-color: #0f172a;
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #94a3b8;
-        text-decoration: none;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .footer-socials a:hover {
-        background-color: #3b82f6;
-        color: #f8fafc;
-        transform: translateY(-4px);
-        box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
-        border-color: #3b82f6;
-    }
-
-    /* Column 2 & 3: Structural Menus */
-    .footer-column h4 {
-        color: #f8fafc;
-        font-size: 1.1rem;
-        font-weight: 600;
-        margin-bottom: 2rem;
-        letter-spacing: 0.5px;
-        position: relative;
-    }
-
-    /* Interactive Section Accent Line */
-    .footer-column h4::after {
-        content: '';
-        position: absolute;
-        bottom: -8px;
-        left: 0;
-        width: 35px;
-        height: 2px;
-        background: linear-gradient(to right, #3b82f6, #10b981);
-    }
-
-    .footer-links {
-        list-style: none;
-    }
-
-    .footer-links li {
-        margin-bottom: 1rem;
-    }
-
-    .footer-links a {
-        color: #94a3b8;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        display: inline-block;
-    }
-
-    .footer-links a:hover {
-        color: #3b82f6;
-        transform: translateX(6px);
-    }
-
-    /* Column 4: Newsletter System Input */
-    .newsletter-box p {
-        font-size: 0.9rem;
-        line-height: 1.6;
-        margin-bottom: 1.5rem;
-    }
-
-    .newsletter-form {
-        display: flex;
-        background-color: #0f172a;
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        border-radius: 8px;
-        padding: 0.4rem;
-        transition: border-color 0.3s ease;
-    }
-
-    .newsletter-form:focus-within {
-        border-color: #3b82f6;
-        box-shadow: 0 0 15px rgba(59, 130, 246, 0.15);
-    }
-
-    .newsletter-form input {
-        background: transparent;
-        border: none;
-        padding: 0.8rem 1rem;
-        color: #f8fafc;
-        font-size: 0.9rem;
-        outline: none;
-        width: 100%;
-    }
-
-    .newsletter-form input::placeholder {
-        color: #475569;
-    }
-
-    .newsletter-btn {
-        background-color: #3b82f6;
-        border: none;
-        color: #f8fafc;
-        padding: 0 1.4rem;
-        border-radius: 6px;
-        cursor: pointer;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .newsletter-btn:hover {
-        background-color: #2563eb;
-        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-    }
-
-    /* Footer Bottom Terminal Strip */
-    .footer-bottom {
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-        padding-top: 35px;
-        margin-top: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 0.88rem;
-        position: relative;
-        z-index: 1;
-    }
-
-    .location-tag {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        color: #f8fafc;
-        font-weight: 500;
-        background-color: rgba(59, 130, 246, 0.05);
-        border: 1px solid rgba(59, 130, 246, 0.1);
-        padding: 0.4rem 1rem;
-        border-radius: 50px;
-    }
-
-    .location-tag i {
-        color: #10b981; /* var(--accent) */
-        animation: pinPulse 2s infinite alternate;
-    }
-
-    @keyframes pinPulse {
-        0% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(16, 185, 129, 0.5)); }
-        100% { transform: scale(1.15); filter: drop-shadow(0 0 8px #10b981); }
-    }
-
-    /* Responsive Adaptation Map */
-    @media (max-width: 968px) {
         .footer-grid {
-            grid-template-columns: 1fr;
-            gap: 3rem;
+            display: grid;
+            grid-template-columns: 1.4fr 0.8fr 0.8fr 1.2fr;
+            gap: 4rem;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 1;
         }
+
+        .footer-brand .logo {
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .footer-brand p {
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            color: #94a3b8;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 1.2rem;
+        }
+
+        .footer-socials a {
+            width: 44px;
+            height: 44px;
+            background-color: #0f172a;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .footer-socials a:hover {
+            background-color: #3b82f6;
+            color: #f8fafc;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+            border-color: #3b82f6;
+        }
+
+        .footer-column h4 {
+            color: #f8fafc;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            letter-spacing: 0.5px;
+            position: relative;
+        }
+
+        .footer-column h4::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 35px;
+            height: 2px;
+            background: linear-gradient(to right, #3b82f6, #10b981);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: #3b82f6;
+            transform: translateX(6px);
+        }
+
+        .newsletter-box p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            background-color: #0f172a;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 0.4rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .newsletter-form:focus-within {
+            border-color: #3b82f6;
+        }
+
+        .newsletter-form input {
+            background: transparent;
+            border: none;
+            padding: 0.8rem 1rem;
+            color: #f8fafc;
+            font-size: 0.9rem;
+            outline: none;
+            width: 100%;
+        }
+
+        .newsletter-btn {
+            background-color: #3b82f6;
+            border: none;
+            color: #f8fafc;
+            padding: 0 1.4rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            background-color: #2563eb;
+        }
+
         .footer-bottom {
-            flex-direction: column;
-            gap: 1.5rem;
-            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 35px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.88rem;
+            position: relative;
+            z-index: 1;
         }
-    }
+
+        .location-tag {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #f8fafc;
+            font-weight: 500;
+            background-color: rgba(59, 130, 246, 0.05);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+        }
+
+        .location-tag i {
+            color: #10b981;
+            animation: pinPulse 2s infinite alternate;
+        }
+
+        @keyframes pinPulse {
+            0% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(16, 185, 129, 0.5)); }
+            100% { transform: scale(1.15); filter: drop-shadow(0 0 8px #10b981); }
+        }
 
         /* --- Structural Responsive Rules --- */
         @media (max-width: 968px) {
@@ -863,23 +820,52 @@
             .hero-buttons {
                 justify-content: center;
             }
+            .menu-toggle {
+                display: block;
+            }
+            /* Interactive Mobile Sliding Nav Layout */
             .nav-links {
-                display: none; /* Modern structural compromise for dynamic code purity */
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--bg-dark);
+                flex-direction: column;
+                justify-content: center;
+                gap: 3rem;
+                transition: left 0.4s var(--transition-smooth);
+                border-top: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            .nav-links.active {
+                left: 0;
             }
             .hero h1 {
                 font-size: 2.8rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Matrix -->
+    <!-- Header Navigation Matrix -->
     <header>
         <div class="container nav-container">
-            <div class="logo">Logivix<span>-tech</span></div>
+            <a href="#" class="logo">Logivix<span>-tech</span></a>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
             <nav>
-                <ul class="nav-links">
+                <ul class="nav-links" id="nav-menu">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
@@ -904,7 +890,6 @@
                 </div>
             </div>
             <div class="hero-image reveal-right active">
-                <!-- Advanced Dynamic Animated Tech Concept Object Layer -->
                 <svg class="tech-mesh" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -912,12 +897,9 @@
                             <stop offset="100%" style="stop-color:#10b981;stop-opacity:0.05" />
                         </linearGradient>
                     </defs>
-                    <!-- Radar Rings Elements -->
                     <circle class="pulse-circle" cx="100" cy="100" r="10" fill="none" stroke="#3b82f6" stroke-width="1.5"/>
                     <circle class="pulse-circle" cx="100" cy="100" r="30" fill="none" stroke="#10b981" stroke-width="1" style="animation-delay: 1.5s;"/>
-                    <!-- Core Abstract Geometry Mesh -->
                     <path fill="url(#grad1)" d="M40,-65C53.3,-58.2,66.7,-49.1,74.3,-36.2C82,-23.3,84,-6.7,81.4,9.2C78.8,25.2,71.7,40.6,61.1,52.3C50.5,64.1,36.5,72.2,21.3,76C6.1,79.8,-10.3,79.3,-25.1,74.3C-39.8,69.2,-52.9,59.7,-63.2,47.3C-73.5,34.9,-81.1,19.6,-83.1,3.4C-85.1,-12.8,-81.5,-29.9,-72.1,-43.3C-62.7,-56.7,-47.5,-66.4,-32.5,-72.1C-17.5,-77.7,-2.6,-79.3,11.3,-77C25.2,-74.7,40,-65,40,-65Z" transform="translate(100 100)" />
-                    <!-- Intersecting Nodes -->
                     <circle cx="100" cy="30" r="4" fill="#3b82f6"/>
                     <circle cx="140" cy="140" r="5" fill="#10b981"/>
                     <circle cx="50" cy="120" r="4.5" fill="#3b82f6"/>
@@ -957,19 +939,16 @@
                 <p>Engineered systems that keep your internal platforms agile and outward-facing web infrastructure pristine.</p>
             </div>
             <div class="services-grid">
-                <!-- Flagship High Performance Service Card -->
                 <div class="service-card featured reveal delay-1">
                     <div class="service-icon"><i class="fas fa-code"></i></div>
                     <h3>Web Development</h3>
                     <p>Our premier architectural focus. Custom-crafted single-page apps (SPAs), secure API configurations, and custom web dashboards engineered explicitly for execution velocity, modern encryption, and clean logic frameworks.</p>
                 </div>
-                <!-- Card 2 -->
                 <div class="service-card reveal delay-2">
                     <div class="service-icon"><i class="fas fa-bezier-curve"></i></div>
                     <h3>UI/UX Software Systems</h3>
                     <p>Refining human-computer interactions. Constructing visual interface blueprints based on behavioral heatmaps, screen scalability matrices, and fast layout rendering constraints.</p>
                 </div>
-                <!-- Card 3 -->
                 <div class="service-card reveal delay-3">
                     <div class="service-icon"><i class="fas fa-server"></i></div>
                     <h3>Infrastructure Optimization</h3>
@@ -1002,99 +981,113 @@
                     </div>
                 </div>
             </div>
-            <div class="reveal-right">
-                <form class="contact-form" onsubmit="event.preventDefault(); alert('Transmission Successful (Simulation Context Only)');">
+            <div class="contact-form-wrapper reveal-right">
+                <!-- Replace form action URL below with your actual Formspree/Web3Forms action endpoint link -->
+                <form action="https://formspree.io/f/your-form-id" method="POST" class="contact-form">
                     <div class="form-group">
-                        <input type="text" id="name" required placeholder=" ">
-                        <label for="name">Identifier / Name</label>
+                        <label>Corporate Identity / Name</label>
+                        <input type="text" name="name" required placeholder="John Doe">
                     </div>
                     <div class="form-group">
-                        <input type="email" id="email" required placeholder=" ">
-                        <label for="email">Corporate Communications Email</label>
+                        <label>Secure Communication Email</label>
+                        <input type="email" name="email" required placeholder="john@company.com">
                     </div>
                     <div class="form-group">
-                        <textarea id="message" rows="4" required placeholder=" "></textarea>
-                        <label for="message">System Specifications / Project Scope Details</label>
+                        <label>Project Technical Parameters</label>
+                        <textarea name="message" rows="5" required placeholder="Outline project parameters and requirements..."></textarea>
                     </div>
-                    <button type="submit" class="btn-submit">Transmit System Request</button>
+                    <button type="submit" class="btn-submit">Submit Technical Scope</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- Footer Terminal -->
+    <!-- Premium Footer Architecture -->
     <footer class="corporate-footer">
         <div class="container">
             <div class="footer-grid">
-                
-                <!-- Column 1: Brand Capsule -->
                 <div class="footer-brand">
                     <div class="logo">Logivix<span>-tech</span></div>
-                    <p>Architecting enterprise-grade web experiences and integrated system infrastructure. We convert complex technical layouts into flawless user execution environments.</p>
+                    <p>Architecting premium digital frameworks and high-performance system configurations for progressive entities globally.</p>
                     <div class="footer-socials">
-                        <a href="#" aria-label="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" aria-label="GitHub Repository"><i class="fab fa-github"></i></a>
-                        <a href="#" aria-label="Twitter Feed"><i class="fab fa-x-twitter"></i></a>
-                        <a href="#" aria-label="Instagram Platform"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
-    
-                <!-- Column 2: Flagship Capabilities Mapping -->
                 <div class="footer-column">
                     <h4>Capabilities</h4>
                     <ul class="footer-links">
                         <li><a href="#services">Web Architecture</a></li>
-                        <li><a href="#services">UI/UX Layout Mapping</a></li>
+                        <li><a href="#services">UI/UX Systems</a></li>
                         <li><a href="#services">Cloud Infrastructure</a></li>
-                        <li><a href="#services">API Integrations</a></li>
                     </ul>
                 </div>
-    
-                <!-- Column 3: Structural Navigation Map -->
                 <div class="footer-column">
-                    <h4>Enterprise</h4>
+                    <h4>Corporate</h4>
                     <ul class="footer-links">
-                        <li><a href="#about">About Our Core</a></li>
-                        <li><a href="#showcase">Product Showcase</a></li>
-                        <li><a href="#services">System Expertise</a></li>
-                        <li><a href="#contact">Consultation Hub</a></li>
+                        <li><a href="#about">Our Core</a></li>
+                        <li><a href="#contact">Consultation</a></li>
+                        <li><a href="#">Security Stack</a></li>
                     </ul>
                 </div>
-    
-                <!-- Column 4: Newsletter Engine -->
                 <div class="footer-column newsletter-box">
-                    <h4>Tech Briefings</h4>
-                    <p>Subscribe to secure premium deployment logs, architectural analysis, and framework updates straight from our core laboratory.</p>
-                    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Telemetry Secure. Welcomed aboard Logivix Insights!');">
-                        <input type="email" required placeholder="name@enterprise.com" aria-label="Corporate Email">
-                        <button class="newsletter-btn" type="submit" aria-label="Subscribe Token"><i class="fas fa-paper-plane"></i></button>
-                    </form>
+                    <h4>System Logs</h4>
+                    <p>Subscribe to recieve quarterly analytical technical performance case updates.</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="root@domain.com">
+                        <button class="newsletter-btn">Join</button>
+                    </div>
                 </div>
-    
             </div>
-    
-            <!-- Terminal Strip Bottom -->
             <div class="footer-bottom">
-                <p>&copy; 2026 Logivix-tech. All operational systems optimized and secured.</p>
+                <p>&copy; 2026 Logivix-tech. All development computations reserved.</p>
                 <div class="location-tag">
-                    <i class="fas fa-map-marker-alt"></i> Islamabad, Pakistan
+                    <i class="fas fa-map-pin"></i> Node: Islamabad, PK
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Light Trigger Script to fire animations when elements appear on screen -->
+    <!-- Interactive Execution Script Engine -->
     <script>
-        const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
-        const observer = new IntersectionObserver((entries) => {
+        // 1. Core Scroll Reveal Observer Logic
+        const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
                 }
             });
-        }, observerOptions);
+        }, { 
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        });
 
-        document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach((el) => {
+            revealObserver.observe(el);
+        });
+
+        // 2. Mobile Interactive Responsive Drawer Toggle Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu');
+        const navMenuNode = document.getElementById('nav-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenuNode.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            if(navMenuNode.classList.contains('active')) {
+                icon.className = 'fas fa-times';
+            } else {
+                icon.className = 'fas fa-bars';
+            }
+        });
+
+        // Close Mobile Menu on Nav Item Click Selection Interaction
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenuNode.classList.remove('active');
+                mobileMenuBtn.querySelector('i').className = 'fas fa-bars';
+            });
+        });
     </script>
 </body>
 </html>
