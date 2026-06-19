@@ -374,7 +374,112 @@
             margin: 0 auto;
             font-size: 1.05rem;
         }
+/* --- Premium Tech Stack Matrix Band --- */
+.tech-matrix-band {
+            background-color: #04070d;
+            border-top: 1px solid rgba(255, 255, 255, 0.02);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+            padding: 2.5rem 0;
+            position: relative;
+            z-index: 10;
+        }
 
+        .matrix-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+        }
+
+        .matrix-title {
+            border-left: 2px solid var(--primary);
+            padding-left: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .matrix-title span {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .matrix-title p {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin: 0;
+        }
+
+        .matrix-grid {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+            width: 100%;
+        }
+
+        .matrix-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            background-color: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            user-select: none;
+        }
+
+        .matrix-item i {
+            font-size: 1.4rem;
+            color: var(--text-muted);
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .matrix-item span {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: color 0.3s ease;
+        }
+
+        /* Neon Inline Hex Custom Variable Interaction Trigger */
+        .matrix-item:hover {
+            background-color: rgba(15, 23, 42, 0.6);
+            border-color: var(--tech-color);
+            box-shadow: 0 0 20px var(--tech-glow);
+            transform: translateY(-2px);
+        }
+
+        .matrix-item:hover i {
+            color: var(--tech-color);
+            transform: scale(1.1);
+        }
+
+        .matrix-item:hover span {
+            color: var(--text-main);
+        }
+
+        /* --- Responsive Flow Rule Adjustments --- */
+        @media (max-width: 968px) {
+            .matrix-flex {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 2rem;
+            }
+            .matrix-grid {
+                justify-content: flex-start;
+                gap: 1rem;
+            }
+            .matrix-item {
+                flex-grow: 1;
+                justify-content: center;
+            }
+        }
         /* --- About Section --- */
         .about-grid {
             display: grid;
@@ -853,10 +958,458 @@
                 text-align: center;
             }
         }
+        /* --- Premium Interactive Tech Cursor System --- */
+@media (min-width: 969px) {
+    html, body, a, button, input, textarea {
+        cursor: none !important; /* Disables standard cursor on desktops safely */
+    }
+
+    .custom-cursor-dot {
+        width: 6px;
+        height: 6px;
+        background-color: var(--accent);
+        box-shadow: 0 0 10px var(--accent-glow);
+        position: fixed;
+        pointer-events: none;
+        z-index: 10000;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: width 0.2s, height 0.2s, background-color 0.2s;
+    }
+
+    .custom-cursor-ring {
+        width: 34px;
+        height: 34px;
+        border: 1.5px solid var(--primary);
+        box-shadow: 0 0 15px rgba(59, 130, 246, 0.1);
+        position: fixed;
+        pointer-events: none;
+        z-index: 9999;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        /* Transition handles the expanding hover growth smoothly */
+        transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+                    height 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+                    border-color 0.3s, background-color 0.3s;
+    }
+
+    /* Interactive Magnet Hover Effects */
+    .custom-cursor-ring.hover-active {
+        width: 55px;
+        height: 55px;
+        border-color: var(--accent);
+        background-color: rgba(16, 185, 129, 0.04);
+        box-shadow: 0 0 25px var(--accent-glow);
+    }
+    
+    .custom-cursor-dot.hover-active {
+        background-color: var(--text-main);
+        width: 4px;
+        height: 4px;
+    }
+}
+/* --- Premium Interactive Project Gallery --- */
+.projects-section {
+            background: linear-gradient(to bottom, #070b13, #0b111e);
+            padding: 8rem 0;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .project-card {
+            background-color: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* Abstract High-Tech Core Mesh Container */
+        .project-image-box {
+            height: 240px;
+            background-color: #04070d;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .project-mesh-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .project-code-snippet {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.3);
+            background-color: rgba(0, 0, 0, 0.4);
+            padding: 0.8rem 1.4rem;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            z-index: 2;
+            transition: all 0.4s ease;
+        }
+
+        /* Meta Content Block Rules */
+        .project-meta {
+            padding: 2.2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .project-header {
+            margin-bottom: 1rem;
+        }
+
+        .project-category {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+
+        .project-meta h3 {
+            font-size: 1.4rem;
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .project-meta p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        /* Inline Horizontal Matrix Pill Tags */
+        .project-tags {
+            display: flex;
+            gap: 0.6rem;
+            margin-top: auto;
+            flex-wrap: wrap;
+        }
+
+        .project-tags span {
+            font-size: 0.75rem;
+            background-color: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 4px 10px;
+            border-radius: 4px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* --- Dynamic Neon Hover System Mechanics --- */
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(59, 130, 246, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-card:hover .project-mesh-bg {
+            transform: scale(1.15);
+        }
+
+        .project-card:hover .project-code-snippet {
+            color: var(--text-main);
+            border-color: rgba(59, 130, 246, 0.3);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.15);
+        }
+
+        /* Alternate neon color focus logic for card two */
+        .project-card:nth-child(even):hover {
+            border-color: rgba(16, 185, 129, 0.15);
+        }
+        .project-card:nth-child(even) .project-category {
+            color: var(--accent);
+        }
+        .project-card:nth-child(even):hover .project-code-snippet {
+            border-color: rgba(16, 185, 129, 0.3);
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.15);
+        }
+
+        /* --- Clean Responsive Breakpoints --- */
+        @media (max-width: 868px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+/*how we work*/
+/* --- High-Tech Process Pipeline Styles --- */
+.process-section {
+            background: linear-gradient(to bottom, #0b111e, #070b13);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pipeline-wrapper {
+            position: relative;
+            max-width: 1000px;
+            margin: 4rem auto 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        /* Central connecting tracking wire */
+        .pipeline-line {
+            position: absolute;
+            left: 50%;
+            top: 10px;
+            bottom: 10px;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), var(--accent), rgba(255,255,255,0.02));
+            transform: translateX(-50%);
+            opacity: 0.2;
+        }
+
+        .pipeline-item {
+            position: relative;
+            display: flex;
+            justify-content: flex-end;
+            width: 50%;
+            padding-right: 45px;
+            transition: all 0.4s ease;
+        }
+
+        /* Alternate timeline tracks to right side of center line */
+        .pipeline-item:nth-child(even) {
+            align-self: flex-end;
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 45px;
+        }
+
+        /* Center node badges */
+        .pipeline-badge {
+            position: absolute;
+            right: -20px;
+            top: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--bg-dark);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .pipeline-item:nth-child(even) .pipeline-badge {
+            left: -20px;
+            right: auto;
+        }
+
+        /* Content block structures */
+        .pipeline-content {
+            background-color: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            padding: 2.2rem;
+            border-radius: 12px;
+            width: 100%;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .pipeline-content h3 {
+            font-size: 1.25rem;
+            color: var(--text-main);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .pipeline-content p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 1.2rem;
+        }
+
+        .pipeline-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary);
+            font-weight: 700;
+            background-color: rgba(59, 130, 246, 0.06);
+            padding: 4px 10px;
+            border-radius: 4px;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        /* Dynamic Interactive Hover Highlights */
+        .pipeline-item:hover .pipeline-content {
+            border-color: rgba(59, 130, 246, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            transform: translateY(-4px);
+        }
+
+        .pipeline-item:hover .pipeline-badge {
+            border-color: var(--primary);
+            color: var(--text-main);
+            box-shadow: 0 0 15px var(--primary-glow);
+            transform: scale(1.1);
+        }
+
+        .pipeline-item:nth-child(even):hover .pipeline-badge {
+            border-color: var(--accent);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+        
+        .pipeline-item:nth-child(even) .pipeline-tag {
+            color: var(--accent);
+            background-color: rgba(16, 185, 129, 0.06);
+            border-color: rgba(16, 185, 129, 0.1);
+        }
+
+        /* --- Seamless Mobile Responsive Viewport Fixes --- */
+        @media (max-width: 768px) {
+            .pipeline-line {
+                left: 20px;
+                transform: none;
+            }
+
+            .pipeline-item, .pipeline-item:nth-child(even) {
+                width: 100%;
+                padding-left: 55px;
+                padding-right: 0;
+                align-self: flex-start;
+            }
+
+            .pipeline-badge, .pipeline-item:nth-child(even) .pipeline-badge {
+                left: 0px;
+                right: auto;
+            }
+        }
+/* --- Premium FAQ Accordion System --- */
+.faq-section {
+            background: linear-gradient(to bottom, #070b13, #0b111e);
+        }
+
+        .faq-container {
+            max-width: 820px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .faq-item {
+            background-color: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Standard HTML Details tag cleanup */
+        .faq-item[open] {
+            border-color: rgba(59, 130, 246, 0.25);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .faq-item summary {
+            list-style: none;
+            padding: 1.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            user-select: none;
+            outline: none;
+        }
+
+        /* Removes standard native browser arrow icon */
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-question {
+            padding-right: 1.5rem;
+            line-height: 1.4;
+            transition: color 0.3s ease;
+        }
+
+        .faq-item summary:hover .faq-question {
+            color: var(--primary);
+        }
+
+        .faq-icon-box {
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            flex-shrink: 0;
+        }
+
+        .faq-item summary:hover .faq-icon-box {
+            border-color: var(--primary);
+            color: var(--primary);
+            box-shadow: 0 0 12px var(--primary-glow);
+            transform: scale(1.05);
+        }
+
+        /* Rotation of icon when panel changes states */
+        .faq-item[open] summary .faq-icon-box {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: var(--text-main);
+            transform: rotate(135deg);
+            box-shadow: 0 0 15px var(--primary-glow);
+        }
+
+        /* Deep slide-in text padding configuration */
+        .faq-answer {
+            padding: 0 2rem 1.8rem 2rem;
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.7;
+            animation: slideUpFaq 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes slideUpFaq {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
     </style>
 </head>
 <body>
-
+<!-- Premium High-Tech Custom Cursor -->
+<div class="custom-cursor-dot" id="cursor-dot"></div>
+<div class="custom-cursor-ring" id="cursor-ring"></div>
     <!-- Header Navigation Matrix -->
     <header>
         <div class="container nav-container">
@@ -869,6 +1422,7 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
+                    <li><a href="careers.html">Careers</a></li>
                     <li><a href="#contact" class="btn-nav">Get Proposal</a></li>
                 </ul>
             </nav>
@@ -909,7 +1463,40 @@
             </div>
         </div>
     </section>
-
+    <div class="tech-matrix-band">
+        <div class="container matrix-flex">
+            <div class="matrix-title">
+                <span>Stack Matrix</span>
+                <p>Core Engineering Stack</p>
+            </div>
+            <div class="matrix-grid">
+                <div class="matrix-item" style="--tech-color: #61dafb; --tech-glow: rgba(97, 218, 251, 0.25);">
+                    <i class="fab fa-react"></i>
+                    <span>React.js</span>
+                </div>
+                <div class="matrix-item" style="--tech-color: #68a063; --tech-glow: rgba(104, 160, 99, 0.25);">
+                    <i class="fab fa-node-js"></i>
+                    <span>Node.js</span>
+                </div>
+                <div class="matrix-item" style="--tech-color: #3776ab; --tech-glow: rgba(55, 118, 171, 0.25);">
+                    <i class="fab fa-python"></i>
+                    <span>Python</span>
+                </div>
+                <div class="matrix-item" style="--tech-color: #f7df1e; --tech-glow: rgba(247, 223, 30, 0.25);">
+                    <i class="fab fa-js"></i>
+                    <span>ES6 JavaScript</span>
+                </div>
+                <div class="matrix-item" style="--tech-color: #f05032; --tech-glow: rgba(240, 80, 50, 0.25);">
+                    <i class="fab fa-git-alt"></i>
+                    <span>Git Edge</span>
+                </div>
+                <div class="matrix-item" style="--tech-color: #ff9900; --tech-glow: rgba(255, 153, 0, 0.25);">
+                    <i class="fab fa-aws"></i>
+                    <span>AWS Cloud</span>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Structural About Matrix -->
     <section id="about">
         <div class="container about-grid">
@@ -958,6 +1545,174 @@
         </div>
     </section>
 
+<!-- Interactive Project Gallery Section -->
+<section id="projects" class="projects-section">
+    <div class="container">
+        <div class="section-title reveal">
+            <h2>Signature Architecture Builds</h2>
+            <p>A curated matrix showcasing full-stack engineering execution, speed optimization, and secure infrastructure blueprints.</p>
+        </div>
+
+        <div class="projects-grid reveal">
+            <!-- Project Card 1: E-Commerce Platform -->
+            <div class="project-card">
+                <div class="project-image-box">
+                    <!-- Standard un-drawn matrix grid backdrop effect placeholder -->
+                    <div class="project-mesh-bg" style="background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.15), transparent 70%);"></div>
+                    <div class="project-code-snippet">
+                        <code>const engine = await FastEdge.compile();</code>
+                    </div>
+                </div>
+                <div class="project-meta">
+                    <div class="project-header">
+                        <span class="project-category">E-Commerce Engine</span>
+                        <h3>Veloce Retail Platform</h3>
+                    </div>
+                    <p>A ultra-high velocity headless commercial architecture engineered for sub-100ms globally distributed page delivery speeds, integrated with scalable inventory systems.</p>
+                    <div class="project-tags">
+                        <span>Next.js</span>
+                        <span>Node.js</span>
+                        <span>PostgreSQL</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 2: SaaS Dashboard -->
+            <div class="project-card">
+                <div class="project-image-box">
+                    <div class="project-mesh-bg" style="background: radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.12), transparent 70%);"></div>
+                    <div class="project-code-snippet">
+                        <code>socket.emit('telemetry_sync', matrix);</code>
+                    </div>
+                </div>
+                <div class="project-meta">
+                    <div class="project-header">
+                        <span class="project-category">SaaS Infrastructure</span>
+                        <h3>AeroMetrics Dashboard</h3>
+                    </div>
+                    <p>A real-time telemetry dashboard synchronization system utilizing persistent web socket connections to display heavy system metrics with zero operational main-thread lag.</p>
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>React.js</span>
+                        <span>WebSockets</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+ <!--how we work-->
+ <!-- Interactive Process Pipeline Section -->
+ <section id="process" class="process-section">
+    <div class="container">
+        <div class="section-title reveal">
+            <h2>The Development Pipeline</h2>
+            <p>Our systematic operational blueprint for delivering high-performance, secure software engineering.</p>
+        </div>
+
+        <div class="pipeline-wrapper reveal">
+            <!-- Central vertical timeline bone line -->
+            <div class="pipeline-line"></div>
+
+            <!-- Step 01 -->
+            <div class="pipeline-item">
+                <div class="pipeline-badge">01</div>
+                <div class="pipeline-content">
+                    <h3>Scope & Infrastructure Discovery</h3>
+                    <p>We begin by analyzing your core business operational metrics. Our team maps out complete technical system architectures, database schemas, API dependencies, and security frameworks before a single line of production code is written.</p>
+                    <span class="pipeline-tag">Phase One</span>
+                </div>
+            </div>
+
+            <!-- Step 02 -->
+            <div class="pipeline-item">
+                <div class="pipeline-badge">02</div>
+                <div class="pipeline-content">
+                    <h3>High-Fidelity Interface Blueprints</h3>
+                    <p>Next, we design high-performance user pathways. We build interactive UI prototypes focused entirely on smooth user experience, modern layout systems, neon micro-interactions, and flawless mobile responsive configurations.</p>
+                    <span class="pipeline-tag">Phase Two</span>
+                </div>
+            </div>
+
+            <!-- Step 03 -->
+            <div class="pipeline-item">
+                <div class="pipeline-badge">03</div>
+                <div class="pipeline-content">
+                    <h3>Full-Stack Code Engineering</h3>
+                    <p>This is where the heavy development happens. We engineer clean, highly optimized codebases using Next.js, Python, and lightning-fast database structures. Everything is hand-coded from scratch for maximum execution speeds and scaling capabilities.</p>
+                    <span class="pipeline-tag">Phase Three</span>
+                </div>
+            </div>
+
+            <!-- Step 04 -->
+            <div class="pipeline-item">
+                <div class="pipeline-badge">04</div>
+                <div class="pipeline-content">
+                    <h3>Deployment Optimization & Launch</h3>
+                    <p>Before launching your platform live to production servers, we run intense speed optimization sweeps, audit overall security, clean system caches, and distribute code across worldwide edge networks to guarantee global load speeds stay sub-200ms.</p>
+                    <span class="pipeline-tag">Phase Four</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>   
+<!--faq-->
+
+<!-- Live FAQ Accordion Section -->
+<section id="faq" class="faq-section">
+    <div class="container">
+        <div class="section-title reveal">
+            <h2>System Architecture FAQ</h2>
+            <p>Answering operational and technical queries regarding our premium development pipeline.</p>
+        </div>
+        
+        <div class="faq-container reveal">
+            <!-- FAQ Item 1 -->
+            <details class="faq-item">
+                <summary>
+                    <span class="faq-question">How long does a premium web platform take to engineer?</span>
+                    <div class="faq-icon-box"><i class="fas fa-plus"></i></div>
+                </summary>
+                <div class="faq-answer">
+                    <p>Standard architectural deployments typically require 4 to 6 weeks. Complex enterprise applications involving custom dashboard ecosystems, real-time data streaming, or secure API integrations run on an agile 8 to 12-week development lifecycle depends on the overall technical scope parameters.</p>
+                </div>
+            </details>
+
+            <!-- FAQ Item 2 -->
+            <details class="faq-item">
+                <summary>
+                    <span class="faq-question">Do you handle post-launch system management and maintenance?</span>
+                    <div class="faq-icon-box"><i class="fas fa-plus"></i></div>
+                </summary>
+                <div class="faq-answer">
+                    <p>Yes. We don't just deploy and disappear. Logivix-tech provides dedicated post-launch system optimization frameworks. This includes real-time security patches, database scaling, server runtime monitoring, and monthly speed optimization to ensure 99.9% uptime benchmarks remain continuous.</p>
+                </div>
+            </details>
+
+            <!-- FAQ Item 3 -->
+            <details class="faq-item">
+                <summary>
+                    <span class="faq-question">Can you integrate custom databases into our existing company frameworks?</span>
+                    <div class="faq-icon-box"><i class="fas fa-plus"></i></div>
+                </summary>
+                <div class="faq-answer">
+                    <p>Absolutely. Our team safely manipulates and integrates standard relational databases (like PostgreSQL and MySQL) as well as NoSQL engines into cloud-hosted platforms or on-premise local servers without causing any data loss or operational down-time during the sync window.</p>
+                </div>
+            </details>
+
+            <!-- FAQ Item 4 -->
+            <details class="faq-item">
+                <summary>
+                    <span class="faq-question">What technologies do you use for your premium builds?</span>
+                    <div class="faq-icon-box"><i class="fas fa-plus"></i></div>
+                </summary>
+                <div class="faq-answer">
+                    <p>We build with modern frameworks optimized for maximum execution speed and security. Our core stack relies heavily on Next.js/React for visual layers, Node.js and Python for robust backends, and cloud deployment engines optimized via global CDNs to ensure global load speeds stay sub-200ms.</p>
+                </div>
+            </details>
+        </div>
+    </div>
+</section>
     <!-- Contact Form & Coordinates Section -->
     <section id="contact">
         <div class="container contact-grid">
@@ -1001,7 +1756,6 @@
             </div>
         </div>
     </section>
-
     <!-- Premium Footer Architecture -->
     <footer class="corporate-footer">
         <div class="container">
@@ -1088,6 +1842,54 @@
                 mobileMenuBtn.querySelector('i').className = 'fas fa-bars';
             });
         });
-    </script>
+        // 3. Custom Physics Cursor Motion Tracking Engine
+const dot = document.getElementById('cursor-dot');
+const ring = document.getElementById('cursor-ring');
+
+let mouseX = 0, mouseY = 0; // True mouse targets
+let ringX = 0, ringY = 0;   // Trailing tracking positions
+
+// Only render custom cursor arrays on standard desktop displays
+if (window.innerWidth > 968) {
+    window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        
+        // Immediate true rendering for zero input lag
+        dot.style.left = `${mouseX}px`;
+        dot.style.top = `${mouseY}px`;
+    });
+
+    // Fluid Animation Loop (Linear Interpolation Physics)
+    const renderCursorFrame = () => {
+        // Change the 0.15 multiplier to tweak the trailing delay velocity
+        ringX += (mouseX - ringX) * 0.15;
+        ringY += (mouseY - ringY) * 0.15;
+        
+        ring.style.left = `${ringX}px`;
+        ring.style.top = `${ringY}px`;
+        
+        requestAnimationFrame(renderCursorFrame);
+    };
+    requestAnimationFrame(renderCursorFrame);
+
+    // Track interactive UI components to apply expanding hover physics
+    const interactiveTargets = 'a, button, .service-card, .menu-toggle, input, textarea, .footer-socials a';
+    document.querySelectorAll(interactiveTargets).forEach(element => {
+        element.addEventListener('mouseenter', () => {
+            dot.classList.add('hover-active');
+            ring.classList.add('hover-active');
+        });
+        element.addEventListener('mouseleave', () => {
+            dot.classList.remove('hover-active');
+            ring.classList.remove('hover-active');
+        });
+    });
+}
+    // Inside your custom cursor script:
+// Ensure it's bundled securely with your other custom targets:
+// Append directly into your global interaction engine scope string:
+const interactiveTargets = 'a, button, .service-card, .menu-toggle, input, textarea, .footer-socials a, .faq-item summary, .pipeline-content, .matrix-item, .project-card'; 
+   </script>
 </body>
 </html>
